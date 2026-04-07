@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import "../css/dashboardStats.css";
 
 const DashboardStats = () => {
@@ -11,41 +11,7 @@ const DashboardStats = () => {
     const [hasAnimated, setHasAnimated] = useState(false);
     const dashboardRef = useRef(null);
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting && !hasAnimated) {
-                    startAnimations();
-                    setHasAnimated(true);
-                }
-            },
-            { threshold: 0.3 }
-        );
-
-        if (dashboardRef.current) {
-            observer.observe(dashboardRef.current);
-        }
-
-        return () => {
-            if (dashboardRef.current) {
-                observer.unobserve(dashboardRef.current);
-            }
-        };
-    }, [hasAnimated]);
-
-    const startAnimations = () => {
-        animateValue(setIncome, 0, 7500, 2000);
-        
-        animateValue(setItem1, 0, 50, 1500);
-        animateValue(setItem2, 0, 10, 1500);
-        animateValue(setItem3, 0, 5, 1500);
-        animateValue(setItem5, 0, 7, 1500);
-        
-        const totalItems = 50 + 10 + 5 + 7;
-        animateValue(setTotal, 0, totalItems, 2000);
-    };
-
-    const animateValue = (setter, start, end, duration) => {
+    const animateValue = useCallback((setter, start, end, duration) => {
         let startTimestamp = null;
         const step = (timestamp) => {
             if (!startTimestamp) startTimestamp = timestamp;
@@ -60,7 +26,43 @@ const DashboardStats = () => {
             }
         };
         window.requestAnimationFrame(step);
-    };
+    }, []);
+
+    const startAnimations = useCallback(() => {
+        animateValue(setIncome, 0, 7500, 2000);
+        
+        animateValue(setItem1, 0, 50, 1500);
+        animateValue(setItem2, 0, 10, 1500);
+        animateValue(setItem3, 0, 5, 1500);
+        animateValue(setItem5, 0, 7, 1500);
+        
+        const totalItems = 50 + 10 + 5 + 7;
+        animateValue(setTotal, 0, totalItems, 2000);
+    }, [animateValue]);
+
+    useEffect(() => {
+        const currentRef = dashboardRef.current;
+        
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting && !hasAnimated) {
+                    startAnimations();
+                    setHasAnimated(true);
+                }
+            },
+            { threshold: 0.3 }
+        );
+
+        if (currentRef) {
+            observer.observe(currentRef);
+        }
+
+        return () => {
+            if (currentRef) {
+                observer.unobserve(currentRef);
+            }
+        };
+    }, [hasAnimated, startAnimations]);
 
     const formatCurrency = (value) => {
         return `$ ${value.toLocaleString()}`;
