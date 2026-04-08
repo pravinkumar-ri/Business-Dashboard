@@ -34,7 +34,6 @@ const TableScreen = () => {
         { id: 6, name: "Mark Wilson", email: "mark@simmmple.com", function: "Programtor", department: "Developer", status: "Offline", employed: "14/09/20", action: "Edit", avatar: "MW", projects: 9, rating: 4.6 }
     ], []);
 
-    // Filter projects based on search and status
     const filteredProjects = useMemo(() => {
         let filtered = projects;
         
@@ -49,7 +48,6 @@ const TableScreen = () => {
             filtered = filtered.filter(project => project.status === selectedStatus);
         }
         
-        // Sort projects
         filtered.sort((a, b) => {
             let aVal, bVal;
             switch(sortBy) {
@@ -80,7 +78,6 @@ const TableScreen = () => {
         return filtered;
     }, [projects, searchTerm, selectedStatus, sortBy, sortOrder]);
 
-    // Pagination
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentProjects = filteredProjects.slice(indexOfFirstItem, indexOfLastItem);
@@ -216,7 +213,6 @@ const TableScreen = () => {
             <div className="wrapper">
                 <LeftSideBar />
                 <div className="content">
-                    {/* Statistics Overview */}
                     <div className="table-stats">
                         <StatCard icon="📊" label="Total Projects" value={projects.length} color="#667eea" />
                         <StatCard icon="✅" label="Completed" value={projects.filter(p => p.status === 'done').length} color="#48bb78" />
@@ -224,7 +220,6 @@ const TableScreen = () => {
                         <StatCard icon="👥" label="Team Members" value={authors.length} color="#9f7aea" />
                     </div>
 
-                    {/* Projects Table Section */}
                     <div className="projects-table-container">
                         <div className="table-header-actions">
                             <h2 className="table-title">📊 Projects Overview</h2>
@@ -235,15 +230,13 @@ const TableScreen = () => {
                                         placeholder="Search projects..." 
                                         className="table-search"
                                         value={searchTerm}
-                                        onChange={(e) => setSearchTerm(e.target.value)}
-                                    />
+                                        onChange={(e) => setSearchTerm(e.target.value)}/>
                                     <span className="search-icon">🔍</span>
                                 </div>
                                 <select 
                                     className="status-filter"
                                     value={selectedStatus}
-                                    onChange={(e) => setSelectedStatus(e.target.value)}
-                                >
+                                    onChange={(e) => setSelectedStatus(e.target.value)}>
                                     <option value="all">All Status</option>
                                     <option value="working">Working</option>
                                     <option value="done">Done</option>
@@ -298,14 +291,12 @@ const TableScreen = () => {
                             </table>
                         </div>
 
-                        {/* Pagination */}
                         {totalPages > 1 && (
                             <div className="pagination">
                                 <button 
                                     className="page-btn"
                                     onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
-                                    disabled={currentPage === 1}
-                                >
+                                    disabled={currentPage === 1}>
                                     ← Previous
                                 </button>
                                 <div className="page-numbers">
@@ -313,8 +304,7 @@ const TableScreen = () => {
                                         <button
                                             key={page}
                                             className={`page-number ${currentPage === page ? 'active' : ''}`}
-                                            onClick={() => setCurrentPage(page)}
-                                        >
+                                            onClick={() => setCurrentPage(page)}>
                                             {page}
                                         </button>
                                     ))}
@@ -322,15 +312,13 @@ const TableScreen = () => {
                                 <button 
                                     className="page-btn"
                                     onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
-                                    disabled={currentPage === totalPages}
-                                >
+                                    disabled={currentPage === totalPages}>
                                     Next →
                                 </button>
                             </div>
                         )}
                     </div>
 
-                    {/* Authors Table Section */}
                     <div className="authors-table-container">
                         <div className="table-header-actions">
                             <h2 className="table-title">👥 Team Members</h2>
@@ -382,7 +370,6 @@ const TableScreen = () => {
                         </div>
                     </div>
 
-                    {/* Recent Activity */}
                     <div className="recent-activity">
                         <h3>🔄 Recent Activity</h3>
                         <div className="activity-timeline">
@@ -412,7 +399,6 @@ const TableScreen = () => {
                 </div>
             </div>
 
-            {/* Project Details Modal */}
             {showDetailsModal && selectedProject && (
                 <div className="modal-overlay" onClick={() => setShowDetailsModal(false)}>
                     <div className="modal-content project-modal" onClick={(e) => e.stopPropagation()}>
