@@ -9,7 +9,6 @@ const PageScreen = () => {
     const [selectedTemplate, setSelectedTemplate] = useState(null);
     const [showTemplateModal, setShowTemplateModal] = useState(false);
 
-    // Page templates
     const templates = [
         { id: 1, name: "Landing Page", category: "Marketing", icon: "🏠", downloads: 1234, rating: 4.8, color: "#667eea" },
         { id: 2, name: "Dashboard", category: "Admin", icon: "📊", downloads: 892, rating: 4.9, color: "#48bb78" },
@@ -21,7 +20,6 @@ const PageScreen = () => {
         { id: 8, name: "Analytics", category: "Data", icon: "📈", downloads: 1456, rating: 4.8, color: "#fc8181" }
     ];
 
-    // Recent pages created
     const recentPages = [
         { id: 1, name: "My Dashboard", lastEdited: "2 hours ago", status: "Published", thumbnail: "📊" },
         { id: 2, name: "User Profile", lastEdited: "1 day ago", status: "Draft", thumbnail: "👤" },
@@ -29,7 +27,6 @@ const PageScreen = () => {
         { id: 4, name: "Landing Page", lastEdited: "1 week ago", status: "Archived", thumbnail: "🏠" }
     ];
 
-    // Page categories
     const categories = [
         { name: "All", count: 24, icon: "📁" },
         { name: "Marketing", count: 8, icon: "📢" },
@@ -74,7 +71,6 @@ const PageScreen = () => {
                 <LeftSideBar />
                 <div className="content">
                     <div className="pages-container">
-                        {/* Header Section */}
                         <div className="pages-header">
                             <div className="header-left">
                                 <h1>📄 Pages</h1>
@@ -85,7 +81,6 @@ const PageScreen = () => {
                             </button>
                         </div>
 
-                        {/* Stats Overview */}
                         <div className="pages-stats">
                             <div className="stat-card">
                                 <div className="stat-icon">📄</div>
@@ -117,9 +112,7 @@ const PageScreen = () => {
                             </div>
                         </div>
 
-                        {/* Main Content */}
                         <div className="pages-content">
-                            {/* Sidebar */}
                             <div className="pages-sidebar">
                                 <div className="search-box">
                                     <input 
@@ -127,8 +120,7 @@ const PageScreen = () => {
                                         placeholder="Search templates..." 
                                         value={searchTerm}
                                         onChange={(e) => setSearchTerm(e.target.value)}
-                                        className="search-input"
-                                    />
+                                        className="search-input"/>
                                     <span className="search-icon">🔍</span>
                                 </div>
 
@@ -138,8 +130,7 @@ const PageScreen = () => {
                                         <button 
                                             key={index} 
                                             className={`category-btn ${activePage === category.name.toLowerCase() ? 'active' : ''}`}
-                                            onClick={() => setActivePage(category.name.toLowerCase())}
-                                        >
+                                            onClick={() => setActivePage(category.name.toLowerCase())}>
                                             <span className="category-icon">{category.icon}</span>
                                             <span className="category-name">{category.name}</span>
                                             <span className="category-count">{category.count}</span>
@@ -164,9 +155,7 @@ const PageScreen = () => {
                                 </div>
                             </div>
 
-                            {/* Main Area */}
                             <div className="pages-main">
-                                {/* Recent Pages */}
                                 <div className="recent-pages">
                                     <div className="section-header">
                                         <h2>🕒 Recent Pages</h2>
@@ -191,7 +180,6 @@ const PageScreen = () => {
                                     </div>
                                 </div>
 
-                                {/* Templates Section */}
                                 <div className="templates-section">
                                     <div className="section-header">
                                         <h2>🎨 Popular Templates</h2>
@@ -202,8 +190,7 @@ const PageScreen = () => {
                                             <div 
                                                 key={template.id} 
                                                 className="template-card"
-                                                onClick={() => handleTemplateClick(template)}
-                                            >
+                                                onClick={() => handleTemplateClick(template)}>
                                                 <div className="template-icon" style={{ backgroundColor: template.color }}>
                                                     {template.icon}
                                                 </div>
@@ -221,7 +208,6 @@ const PageScreen = () => {
                                     </div>
                                 </div>
 
-                                {/* Featured Section */}
                                 <div className="featured-section">
                                     <div className="featured-card">
                                         <div className="featured-content">
@@ -240,7 +226,6 @@ const PageScreen = () => {
                                     </div>
                                 </div>
 
-                                {/* Tips Section */}
                                 <div className="tips-section">
                                     <div className="tips-header">
                                         <h3>💡 Pro Tips</h3>
@@ -267,7 +252,6 @@ const PageScreen = () => {
                 </div>
             </div>
 
-            {/* Template Modal */}
             {showTemplateModal && selectedTemplate && (
                 <div className="template-modal-overlay" onClick={() => setShowTemplateModal(false)}>
                     <div className="template-modal" onClick={(e) => e.stopPropagation()}>
