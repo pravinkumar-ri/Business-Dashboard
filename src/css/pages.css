@@ -1,10 +1,8 @@
-/* Pages Container */
 .pages-container {
     padding: 20px;
     min-height: 100%;
 }
 
-/* Header Section */
 .pages-header {
     display: flex;
     justify-content: space-between;
@@ -45,7 +43,6 @@
     box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
 
-/* Stats Section */
 .pages-stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -94,7 +91,6 @@
     margin: 0;
 }
 
-/* Content Layout */
 .pages-content {
     display: grid;
     grid-template-columns: 280px 1fr;
@@ -106,7 +102,6 @@
     overflow: hidden;
 }
 
-/* Sidebar */
 .pages-sidebar {
     background: rgba(0, 0, 0, 0.2);
     padding: 20px;
@@ -216,7 +211,6 @@
     transform: translateX(5px);
 }
 
-/* Main Area */
 .pages-main {
     padding: 25px;
     overflow-y: auto;
@@ -248,7 +242,6 @@
     transform: translateX(5px);
 }
 
-/* Recent Pages */
 .recent-pages {
     margin-bottom: 40px;
 }
@@ -342,7 +335,6 @@
     transform: scale(1.05);
 }
 
-/* Templates Section */
 .templates-section {
     margin-bottom: 40px;
 }
@@ -416,7 +408,6 @@
     transform: scale(1.05);
 }
 
-/* Featured Section */
 .featured-section {
     margin-bottom: 40px;
 }
@@ -491,7 +482,6 @@
     font-size: 4rem;
 }
 
-/* Tips Section */
 .tips-section {
     background: rgba(72, 187, 120, 0.1);
     border-radius: 12px;
@@ -537,7 +527,6 @@
     font-size: 1rem;
 }
 
-/* Modal */
 .template-modal-overlay {
     position: fixed;
     top: 0;
@@ -656,7 +645,6 @@
     box-shadow: 0 4px 15px rgba(72, 187, 120, 0.4);
 }
 
-/* Animations */
 @keyframes slideIn {
     from {
         opacity: 0;
@@ -668,7 +656,6 @@
     }
 }
 
-/* Responsive Design */
 @media (max-width: 1024px) {
     .pages-content {
         grid-template-columns: 1fr;
