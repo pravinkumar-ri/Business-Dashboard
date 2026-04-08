@@ -9,7 +9,6 @@
     backdrop-filter: blur(10px);
 }
 
-/* Calendar Header */
 .calendar-header {
     display: flex;
     justify-content: space-between;
@@ -94,7 +93,6 @@
     border-color: transparent;
 }
 
-/* Calendar Grid */
 .calendar-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -116,7 +114,6 @@
     color: #f56565;
 }
 
-/* Calendar Day */
 .calendar-day {
     min-height: 100px;
     display: flex;
@@ -205,7 +202,6 @@
     text-overflow: ellipsis;
 }
 
-/* Selected Date Info */
 .selected-date-info {
     display: flex;
     justify-content: space-between;
@@ -259,7 +255,6 @@
     box-shadow: 0 4px 15px rgba(72, 187, 120, 0.4);
 }
 
-/* Events List */
 .events-list {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 12px;
@@ -322,7 +317,6 @@
     transform: scale(1.05);
 }
 
-/* Upcoming Events */
 .upcoming-events {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 12px;
@@ -374,7 +368,6 @@
     padding: 20px;
 }
 
-/* Modal Styles */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -498,7 +491,6 @@
     box-shadow: 0 4px 15px rgba(72, 187, 120, 0.4);
 }
 
-/* Animations */
 @keyframes slideIn {
     from {
         opacity: 0;
@@ -510,7 +502,6 @@
     }
 }
 
-/* Responsive Design */
 @media (max-width: 1024px) {
     .calendar-container {
         margin: 10px;
