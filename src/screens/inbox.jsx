@@ -87,7 +87,6 @@ const InboxScreen = () => {
                 <LeftSideBar />
                 <div className="content">
                     <div className="inbox-container">
-                        {/* Header */}
                         <div className="inbox-header">
                             <div className="header-left">
                                 <h1>📬 Inbox</h1>
@@ -98,7 +97,6 @@ const InboxScreen = () => {
                             </div>
                         </div>
 
-                        {/* Tabs */}
                         <div className="inbox-tabs">
                             <button 
                                 className={`tab-btn ${activeTab === 'messages' ? 'active' : ''}`}
@@ -116,11 +114,9 @@ const InboxScreen = () => {
                             </button>
                         </div>
 
-                        {/* Main Content */}
                         <div className="inbox-main">
                             {activeTab === 'messages' ? (
                                 <>
-                                    {/* Messages Sidebar */}
                                     <div className="messages-sidebar">
                                         <div className="search-bar">
                                             <input 
@@ -139,8 +135,7 @@ const InboxScreen = () => {
                                                     onClick={() => {
                                                         setSelectedChat(msg);
                                                         markAsRead(msg.id);
-                                                    }}
-                                                >
+                                                    }}>
                                                     <div className="message-avatar">
                                                         <div className="avatar">{msg.avatar}</div>
                                                         {msg.online && <div className="online-dot"></div>}
@@ -155,7 +150,6 @@ const InboxScreen = () => {
                                         </div>
                                     </div>
 
-                                    {/* Chat Area */}
                                     <div className="chat-area">
                                         {selectedChat ? (
                                             <>
@@ -202,7 +196,6 @@ const InboxScreen = () => {
                                     </div>
                                 </>
                             ) : (
-                                // Notifications Panel
                                 <div className="notifications-panel">
                                     <div className="notifications-header">
                                         <h3>All Notifications</h3>
