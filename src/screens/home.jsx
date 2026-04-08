@@ -48,7 +48,6 @@ const HomeScreen = () => {
             <div className="wrapper">
                 <LeftSideBar />
                 <div className="content">
-                    {/* Welcome Banner */}
                     <div className="welcome-banner">
                         <div className="banner-content">
                             <div className="greeting-section">
@@ -77,7 +76,6 @@ const HomeScreen = () => {
                         )}
                     </div>
 
-                    {/* Quick Stats Row */}
                     <div className="quick-stats-row">
                         <div className="quick-stat-card">
                             <div className="quick-stat-icon">📈</div>
@@ -109,7 +107,6 @@ const HomeScreen = () => {
                         </div>
                     </div>
 
-                    {/* Main Content Grid */}
                     <div className="first">
                         <div className="dashboard">
                             <DashboardStats />
@@ -119,7 +116,6 @@ const HomeScreen = () => {
                         </div>
                     </div>
 
-                    {/* Secondary Content Grid */}
                     <div className="second">
                         <div className="order">
                             <ReviewsComponent />
@@ -129,7 +125,6 @@ const HomeScreen = () => {
                         </div>
                     </div>
 
-                    {/* Recent Activity Section */}
                     <div className="recent-activity-section">
                         <div className="section-header">
                             <h3>🔄 Recent Activity</h3>
@@ -171,7 +166,6 @@ const HomeScreen = () => {
                         </div>
                     </div>
 
-                    {/* Footer Stats */}
                     <div className="footer-stats">
                         <div className="footer-stat-item">
                             <span className="footer-stat-value">$45.2K</span>
