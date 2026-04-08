@@ -6,7 +6,7 @@ import "../css/calendarScreen.css";
 const CalendarScreen = () => {
     const [currentDate, setCurrentDate] = useState(new Date());
     const [selectedDate, setSelectedDate] = useState(new Date());
-    const [viewMode, setViewMode] = useState("month"); // month, week, day
+    const [viewMode, setViewMode] = useState("month");
     const [showEventModal, setShowEventModal] = useState(false);
     const [eventTitle, setEventTitle] = useState("");
     const [eventTime, setEventTime] = useState("");
@@ -203,7 +203,6 @@ const CalendarScreen = () => {
                             </div>
                         </div>
 
-                        {/* Calendar Grid */}
                         <div className="calendar-grid">
                             {dayNames.map(day => (
                                 <div key={day} className={`day-header ${day === 'Sun' ? 'sunday-header' : ''}`}>
@@ -213,7 +212,6 @@ const CalendarScreen = () => {
                             {renderCalendarDays()}
                         </div>
 
-                        {/* Selected Date Info */}
                         <div className={`selected-date-info ${isSelectedSunday ? 'sunday' : ''}`}>
                             <div className="selected-date-header">
                                 <span className="selected-date-icon">📅</span>
@@ -235,7 +233,6 @@ const CalendarScreen = () => {
                             </button>
                         </div>
 
-                        {/* Events List */}
                         {getEventsForDate(selectedDate.getDate()).length > 0 && (
                             <div className="events-list">
                                 <h3>📋 Events for {selectedDate.toDateString()}</h3>
@@ -256,7 +253,6 @@ const CalendarScreen = () => {
                             </div>
                         )}
 
-                        {/* Upcoming Events Section */}
                         <div className="upcoming-events">
                             <h3>⭐ Upcoming Events</h3>
                             <div className="upcoming-list">
@@ -277,7 +273,6 @@ const CalendarScreen = () => {
                 </div>
             </div>
 
-            {/* Add Event Modal */}
             {showEventModal && (
                 <div className="modal-overlay" onClick={() => setShowEventModal(false)}>
                     <div className="event-modal" onClick={(e) => e.stopPropagation()}>
